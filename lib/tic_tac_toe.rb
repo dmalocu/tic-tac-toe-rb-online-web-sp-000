@@ -64,35 +64,51 @@ def current_player
 end
 
 def won?(board)
-  WIN_COMBINATIONS.each do |win_combo| 
-    win_index_1 = win_combo[0]
-    win_index_2 = win_combo[1]
-    win_index_3 = win_combo[2]
-    position_1 = board(win_index_1)
-    position_2 = board(win_index_2)
-    position_3 = board(win_index_3)
-    
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return win_combo 
-    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-      return win_combo
+  WIN_COMBINATIONS.each do |win_combination|
+    if (board[win_combination[0]]) == "X" && (board[win_combination[1]]) == "X" && (board[win_combination[2]]) == "X" 
+      return win_combination
+    elsif (board[win_combination[0]]) == "O" && (board[win_combination[1]]) == "O" && (board[win_combination[2]]) == "O" 
+      return win_combination
     end
-  return false 
+  end  
+  false 
+end
+
+def full?(board)
+  board.any? do |spot|
+    if spot == "" || spot == " " || spot == nil 
+      return false
+    end 
+  end 
+  true 
+end
+
+def draw?(board)
+  if full?(board) && !(won?(board))
+    return true 
+  else 
+    return false
+  end
+end
+
+def over?(board)
+  if won?(board) || full?(board) || draw?(board)
+    return true
+  else
+    return false 
   end
 end 
 
-def full?
-  
-end 
-
-def draw?
-  
-end 
-
-def over?
-  
-end 
-
-def winner
-  
-end 
+def winner(board)
+  index = []
+  index = won?(board)
+  if index == false
+    return nil
+  else
+    if board[index[0]] == "X"
+      return "X"
+    else
+      return "O"
+    end
+  end
+end
