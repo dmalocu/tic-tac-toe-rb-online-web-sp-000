@@ -124,6 +124,6 @@ def current_player(board)
 end
 
 def play(board)
-  user_input = gets.strip.to_i.downcase 
+  while !(over)
   
 end
