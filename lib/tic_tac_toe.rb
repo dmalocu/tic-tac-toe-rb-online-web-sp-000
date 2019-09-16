@@ -65,7 +65,7 @@ end
 
 def won?(board)
   WIN_COMBINATIONS.each do |win_combo| 
-    win_index1 = 
+    win_index_ = win_combo[0]
 end 
 
 def full?
