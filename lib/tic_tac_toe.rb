@@ -63,7 +63,7 @@ def current_player
 
 end
 
-def won?
+def won?(board, index)
   
 end 
 
