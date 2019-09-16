@@ -63,8 +63,9 @@ def current_player
 
 end
 
-def won?(board, index)
-  
+def won?(board)
+  WIN_COMBINATIONS.each do |win_combo| 
+    if board
 end 
 
 def full?
