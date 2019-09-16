@@ -123,6 +123,7 @@ def current_player(board)
    end
 end
 
-def play
+def play(board)
+  user_input = gets.strip.to_i.downcase 
   
 end
