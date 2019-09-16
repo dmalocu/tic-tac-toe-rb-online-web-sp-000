@@ -112,3 +112,9 @@ def winner(board)
     end
   end
 end
+
+def turn_count
+  loop do 
+    9.times(turn)
+  end 
+end 
