@@ -124,6 +124,14 @@ def current_player(board)
 end
 
 def play(board)
-  while !(over)
-  
+  while !over?(board)
+    turn(board)
+  end
+  if won?(board)
+    puts "Congratulations " + winner(board) + "!"
+  elsif draw?(board)
+    puts "It's a Draw!"
+  else
+    #do nothing
+  end
 end
